@@ -1,0 +1,64 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: #fff;
+  border: 1px solid $border-color;
+  font-size: 0.95rem;
+
+  thead {
+    background: $light-gray;
+    th {
+      padding: 0.75rem;
+      border-bottom: 2px solid $border-color;
+      font-weight: 600;
+    }
+  }
+
+  tbody {
+    tr {
+      text-align: center;
+
+      &:hover {
+        background: lighten($light-gray, 15%);
+      }
+
+      td {
+        padding: 0.75rem;
+        border-bottom: 1px solid $border-color;
+
+        .link {
+          color: $primary-color;
+          text-decoration: underline;
+          &:hover {
+            color: darken($primary-color, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  .actions {
+    text-align: center;
+
+    button {
+      padding: 0.4rem 0.8rem;
+      border-radius: $radius;
+      font-size: 0.85rem;
+      margin-right: 0.5rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .edit-btn {
+      @include button-style($secondary-color, darken($secondary-color, 10%));
+    }
+
+    .delete-btn {
+      @include button-style($danger-color, darken($danger-color, 10%));
+    }
+  }
+}

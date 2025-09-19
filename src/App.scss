@@ -1,0 +1,63 @@
+@import "./styles/variables";
+@import "./styles/mixins";
+.app-container {
+  display: flex;
+  height: 100vh; // full viewport height
+}
+
+.sidebar {
+  width: 300px;
+  background: $primary-color;
+  color: #fff;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 1rem;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 0.5rem 0.75rem;
+        border-radius: $radius;
+        transition: background 0.2s;
+
+        &:hover {
+          background: darken($primary-color, 10%);
+        }
+
+        &.active {
+          background: darken($primary-color, 15%);
+        }
+      }
+    }
+  }
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background: #f9fafb;
+  overflow-y: auto; // scroll only if content overflows
+}
+
+// Button Overrides
+button.add-btn {
+  @include button-style($secondary-color, darken($secondary-color, 10%));
+}
+
+button.delete-btn {
+  @include button-style($danger-color, darken($danger-color, 10%));
+}
